@@ -1,12 +1,37 @@
 
 :root {
-  --green: #78c801;
+  --green: #87dc04;
+  --green-dark: #72c402;
+  --git-gray: #24292e;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: TeamSpirit;
+  src: url("fonts/TeamSpiritNF.ttf");
+}
+
+@font-face {
+  font-family: Dragz;
+  src: url("fonts/62DRAGZ.otf");
 }
 
 html, body, #content  {
   height: 100%;
   background-color: white;
   margin: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
 }
 
 #content {
@@ -22,7 +47,6 @@ html, body, #content  {
 
 #navbar {
   grid-area: nav;
-  background-color: blue;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -32,9 +56,28 @@ html, body, #content  {
 #footer {
   grid-area: footer;
   text-align: center;
+  padding: 15px 0px 10px 0px;
+  background-color: var(--git-gray);
+  color: white;
+  font-family: Roboto;
+  font-size: 9pt;
 }
 
 h1 {
+  text-align: center;
+  color: white;
+  font-family: Dragz;
   margin: 0;
-  font-size: 30pt;
+  font-size: 60pt;
+  padding: 10px;
+  line-height: 100px;
+  text-shadow: 15px 15px black;
+  background-color: var(--green);
+  border-top: 2px solid var(--green-dark);
+  border-bottom: 2px solid var(--green-dark);
+  user-select: none; /* Standard */
+}
+
+img.icon {
+
 }
