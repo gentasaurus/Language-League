@@ -11,6 +11,12 @@
 }
 
 @font-face {
+  font-family: Roboto;
+  src: url("fonts/Roboto/Roboto-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
   font-family: Roboto-Light;
   src: url("fonts/Roboto/Roboto-Light.ttf");
 }
@@ -46,7 +52,7 @@ body {
   grid-template-areas:
     "nav nav nav"
     "title title title"
-    "main main main"
+    ". main ."
     "footer footer footer";
 }
 
@@ -93,6 +99,19 @@ body {
   transition: padding-bottom .3s, padding-top .3s, border-bottom-width .3s;
 }
 
+#banner {
+  grid-area: title;
+}
+
+.widget {
+  grid-area: main;
+  border: 3px solid gainsboro;
+  margin: 10px 10px 20px 10px;
+  border-radius: 20px;
+  box-shadow: 5px 5px darkgrey;
+  padding: 20px;
+}
+
 #footer {
   grid-area: footer;
   text-align: center;
@@ -111,23 +130,23 @@ h1 {
   font-size: 60pt;
   padding: 10px 0px 20px 0px;
   line-height: 100px;
-  text-shadow: 15px 15px black;
   background-color: var(--green);
   border-top: 3px solid var(--green-dark);
   border-bottom: 3px solid var(--green-dark);
   user-select: none; /* Standard */
   overflow: hidden;
-  animation-name: shadowin;
+  animation-name: shadow-in;
   animation-duration: .5s;
+  animation-delay: .25s;
   animation-fill-mode: forwards;
 }
 
-@keyframes tagfade {
+@keyframes tag-fade {
   from{opacity: 0;}
   to{opacity: 1;}
 }
 
-@keyframes shadowin {
+@keyframes shadow-in {
   from{text-shadow: 0px 0px black;}
   to{text-shadow: 15px 15px black;}
 }
@@ -140,11 +159,31 @@ h1 {
   display: flex;
   padding: auto;
   justify-content: center;
-  animation-name: tagfade;
+  animation-name: tag-fade;
   animation-duration: 1s;
   animation-delay: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
+}
+
+#xp-graph {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.xp-bar {
+  height: 100%;
+  width: 50%;
+  background-color: yellow;
+  display: inline-block;
+  color: yellow;
+  user-select: none;
+}
+
+h2 {
+  font-family: Roboto;
+  font-weight: bold;
+  margin-top: 0px;
 }
 
 .tagline span {
