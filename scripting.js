@@ -88,8 +88,6 @@ function getAvi(index) {
 
 function duoInit() {
 
-  $("#xp-graph").hide();
-
   console.log("Initializing");
 
   /* Remove spinners */
@@ -101,7 +99,6 @@ function duoInit() {
     /* Update widgets */
 
     // XP bar graph
-    $("#xp-graph").show();
     var i;
     var pMax = 0; // maximum point value
     for(i = 0; i < userdata.length; i++) {
