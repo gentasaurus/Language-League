@@ -3,6 +3,8 @@
   --green: #87dc04;
   --green-dark: #72c402;
   --git-gray: #24292e;
+  --blue-duo: #1cb0f6;
+  --blue-duo-dark: #168cc4;
 }
 
 @font-face {
@@ -48,7 +50,7 @@ body {
 #content {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto auto 5fr 1fr;
+  grid-template-rows: auto auto 5fr auto;
   grid-template-areas:
     "nav nav nav"
     "title title title"
@@ -167,17 +169,50 @@ h1 {
 }
 
 #xp-graph {
-  border: 1px solid black;
   width: 100%;
 }
 
+#xp-graph td {
+  min-height: 1px;
+  height: 1px;
+}
+
 .xp-bar {
-  height: 100%;
-  width: 50%;
-  background-color: yellow;
+  height: 80%;
+  width: 0%;
+  background-color: var(--blue-duo);
+  border: 3px solid var(--blue-duo-dark);
+  border-radius: 0 15px 15px 0;
+  padding-right: 8px;
   display: inline-block;
-  color: yellow;
+  font-family: Roboto;
+  font-weight: bold;
+  text-align: right;
+  font-size: 26pt;
+  color: white;
   user-select: none;
+  margin-bottom: 4px;
+  animation-name: xp-slide;
+  animation-duration: 1.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+@keyframes xp-slide {
+  from{width: 0%; opacity: 0}
+  to{width: 69%; opacity: 1}
+}
+
+.avi {
+  width: 8%;
+}
+
+.avi img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 h2 {
