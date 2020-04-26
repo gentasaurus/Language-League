@@ -163,7 +163,7 @@ h1 {
   justify-content: center;
   animation-name: tag-fade;
   animation-duration: 1s;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -194,7 +194,7 @@ h1 {
   margin-bottom: 4px;
   animation-name: xp-slide;
   animation-duration: 1.5s;
-  animation-delay: 1s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
   text-overflow: ellipsis;
   white-space: nowrap;
