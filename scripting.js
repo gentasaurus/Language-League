@@ -7,7 +7,7 @@ $(document).ready(function(){
   // Testaccount
   $.ajax({
     type: 'POST',
-    url: "https://cors-anywhere.herokuapp.com/https://www.duolingo.com/login",
+    url: "https://young-bastion-39680.herokuapp.com/https://www.duolingo.com/login",
     data: {"login": "TestBoyMan", "password": "Testaccount"},
     success: function(data, textStatus, request){
         var headers = request.getAllResponseHeaders().split("\n");
@@ -35,7 +35,7 @@ function requestData(index) {
       type: 'GET',
       cache: false,
       headers: {'Authorization': "Bearer " + duoAuth},
-      url: "https://cors-anywhere.herokuapp.com/https://www.duolingo.com/users/" + username,
+      url: "https://young-bastion-39680.herokuapp.com/https://www.duolingo.com/users/" + username,
       success: function(data, textStatus, request){
         if(request.status == 200) {
           userdata[index] = data;
