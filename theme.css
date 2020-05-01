@@ -261,6 +261,18 @@ img.flag {
   height: 50px;
 }
 
+#languages {
+  border-collapse: collapse;
+}
+
+#languages td {
+  padding-top: 3px;
+}
+
+#languages tr:nth-child(even) {
+  background-color: gainsboro;
+}
+
 .langName {
   font-family: Roboto;
   text-align: left;
