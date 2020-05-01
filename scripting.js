@@ -86,6 +86,37 @@ function getAvi(index) {
   return "https://" + userdata[index].avatar.substring(2) + "/medium";
 }
 
+function getFlag(lng) {
+  return "images/flags/" + lng + ".png";
+}
+
+function updateWidgets() {
+
+  // XP bar graph
+  var pMax = 0; // maximum point value
+  for(var i = 0; i < userdata.length; i++) {
+    var points = getWeeklyXP(i);
+    if(points > pMax) {
+      pMax = points;
+    }
+  }
+
+  for(var j = 0; j < userdata.length; j++) {
+    var pct = getWeeklyXP(j) * 0.98 / pMax;
+    var barID = "bar-" + competitors[j];
+    $("#xp-graph").append("<tr><td class='avi'><img src='" + getAvi(j) + "' /></td><td id='" + barID + "'class='xp-bar'>" + getWeeklyXP(j) + " XP</td></tr>");
+    $("#" + barID).animate({
+      width: pct*100 + "%",
+      opacity: 1
+    }, 2000);
+  }
+
+  // Current languages
+  for(var k = 0; k < userdata.length; k++) {
+    $("#languages").append("<tr><td class='avi'><img src='" + getAvi(k) + "' /></td><td><img class='flag' src='" + getFlag(userdata[k].learning_language) + "' /></td><td class='langName'>" + userdata[k].learning_language_string + "</td></tr>");
+  }
+}
+
 function duoInit() {
 
   console.log("Initializing");
@@ -94,29 +125,9 @@ function duoInit() {
   $(".spinner").animate({
     opacity: 0
   }, 500, function(){
-    $(".spinner").remove();
-
-    /* Update widgets */
-
-    // XP bar graph
-    var i;
-    var pMax = 0; // maximum point value
-    for(i = 0; i < userdata.length; i++) {
-      var points = getWeeklyXP(i);
-      if(points > pMax) {
-        pMax = points;
-      }
-    }
-
-    var j;
-    for(j = 0; j < userdata.length; j++) {
-      var pct = getWeeklyXP(j) * 0.98 / pMax;
-      var barID = "bar-" + competitors[j];
-      $("#xp-graph").append("<tr><td class='avi'><img src='" + getAvi(j) + "' /></td><td id='" + barID + "'class='xp-bar'>" + getWeeklyXP(j) + " XP</td></tr>");
-      $("#" + barID).animate({
-        width: pct*100 + "%",
-        opacity: 1
-      }, 2000);
+    this.remove();
+    if($(".spinner").length == 0) {
+      updateWidgets();
     }
   });
 
